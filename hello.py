@@ -1,9 +1,10 @@
-def wsgi_application(environ, start_response):
-    # business logic
+def app(environ, start_response):
+    """Simplest possible application object"""
+    qs = environ.get('QUERY_STRING')
+    parsed_qs = [x + '\n' for x in qs.split('&')]
     status = '200 OK'
-    headers = [
-        ('Content-type', 'text/plain')
+    response_headers = [
+        ('Content-type','text/plain')
     ]
-    body = 'Hello, world'
-    start_response(status, headers)
-    return [ body ]
+    start_response(status, response_headers)
+    return parsed_qs
