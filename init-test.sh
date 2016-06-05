@@ -4,3 +4,5 @@ sudo /etc/init.d/nginx restart
 sudo ln -sf /home/bi/PycharmProjects/stepic_web_project/etc/hello.py /etc/gunicorn.d/hello.py
 cd /home/bi/PycharmProjects/stepic_web_project/
 sudo gunicorn --config='/etc/gunicorn.d/hello.py' hello:app
+cd ask/ask
+sudo gunicorn --config='/etc/gunicorn.d/hello.py' wsgi:app
